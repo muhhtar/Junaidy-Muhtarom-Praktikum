@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Membuat Form - Latihan</title>
+</head>
+<body>
+    <h1>Formulir Pendaftaran</h1>
+    
+    <form action="proses.php" method="post">
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap">
+        <br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br><br>
+        
+        <label>Jenis Kelamin:</label><br>
+        <input type="radio" id="laki" name="jenis_kelamin" value="laki-laki">
+        <label for="laki">Laki-laki</label><br>
+        <input type="radio" id="perempuan" name="jenis_kelamin" value="perempuan">
+        <label for="perempuan">Perempuan</label>
+        <br><br>
+        
+        <label>Hobi:</label><br>
+        <input type="checkbox" id="hobi_baca" name="hobi[]" value="membaca">
+        <label for="hobi_baca">Membaca Buku</label><br>
+        <input type="checkbox" id="hobi_nulis" name="hobi[]" value="menulis" checked>
+        <label for="hobi_nulis">Menulis</label><br>
+        <input type="checkbox" id="hobi_mancing" name="hobi[]" value="memancing">
+        <label for="hobi_mancing">Memancing</label>
+        <br><br>
+        
+        <label for="asal_kota">Asal Kota:</label>
+        <select id="asal_kota" name="asal_kota">
+            <option value="Jakarta">Jakarta</option>
+            <option value="Bandung">Bandung</option>
+            <option value="Semarang" selected>Semarang</option>
+            <option value="Surabaya">Surabaya</option>
+        </select>
+        <br><br>
+        
+        <label for="komentar">Komentar Anda:</label><br>
+        <textarea id="komentar" name="komentar" rows="5" cols="30" 
+                  placeholder="Silahkan katakan isi hati anda..."></textarea>
+        <br><br>
+        
+        <input type="submit" value="Mulai Proses!">
+        <input type="reset" value="Reset Form">
+    </form>
+</body>
+</html>

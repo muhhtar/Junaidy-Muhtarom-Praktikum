@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran Perpustakaan Kotamadium</title>
+</head>
+<body>
+    <h1>Formulir Pendaftaran Anggota Perpustakaan Kotamadium</h1>
+    
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Data Pribadi</legend>
+            
+            <label for="nama_perpus">Nama Lengkap:</label>
+            <input type="text" id="nama_perpus" name="nama" required>
+            <br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="contoh@email.com">
+            <br><br>
+            
+            <label for="no_hp">No. HP:</label>
+            <input type="tel" id="no_hp" name="no_hp">
+            <br><br>
+            
+            <label>Status:</label>
+            <input type="radio" id="pelajar" name="status" value="pelajar">
+            <label for="pelajar">Pelajar/Mahasiswa</label>
+            
+            <input type="radio" id="umum" name="status" value="umum">
+            <label for="umum">Umum</label>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Jenis Keanggotaan</legend>
+            <select name="jenis_anggota">
+                <option value="reguler">Reguler (Rp 50.000/tahun)</option>
+                <option value="premium">Premium (Rp 100.000/tahun)</option>
+                <option value="keluarga">Keluarga (Rp 150.000/tahun)</option>
+            </select>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Minat Baca</legend>
+            <label>Pilih Kategori Buku Favorit:</label><br>
+            <input type="checkbox" id="fiksi" name="kategori[]" value="fiksi">
+            <label for="fiksi">Fiksi</label><br>
+            <input type="checkbox" id="nonfiksi" name="kategori[]" value="nonfiksi">
+            <label for="nonfiksi">Non-Fiksi</label><br>
+            <input type="checkbox" id="ilmiah" name="kategori[]" value="ilmiah">
+            <label for="ilmiah">Ilmiah</label><br>
+            <input type="checkbox" id="anak" name="kategori[]" value="anak">
+            <label for="anak">Buku Anak</label>
+        </fieldset>
+        
+        <br>
+        <input type="submit" value="Daftar Sekarang">
+        <input type="reset" value="Bersihkan Form">
+    </form>
+</body>
+</html>
