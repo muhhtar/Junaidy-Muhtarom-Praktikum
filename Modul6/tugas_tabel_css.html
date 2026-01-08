@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 6 - Tugas: Styling Tabel dengan CSS</title>
+    <style>
+        /* Styling umum untuk semua tabel */
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        
+        /* Tabel dengan inline style (contoh pertama) */
+        table.tabel-inline {
+            width: 100%;
+        }
+        
+        /* Tabel dengan class */
+        table.names {
+            width: 100%;
+            background-color: #f1f1c1;
+        }
+        
+        /* Tabel dengan ID */
+        table#tabel-khusus {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #e6f7ff;
+        }
+        
+        table#tabel-khusus th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        table#tabel-khusus tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        table#tabel-khusus tr:hover {
+            background-color: #ddd;
+        }
+        
+        /* Styling untuk halaman */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .code-example {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-left: 4px solid #4CAF50;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Modul 6 - Praktikum CSS untuk Tabel</h1>
+        <p><strong>Nama:</strong> Junaidy Muhtarom</p>
+        <p><strong>NIM:</strong> [Isi NIM Anda]</p>
+        <p><strong>Kelas:</strong> [Isi Kelas Anda]</p>
+        
+        <!-- Bagian 1: Tabel dengan inline style -->
+        <div class="section">
+            <h2>1. Tabel dengan Inline Style</h2>
+            <table style="width:100%">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+                <tr>
+                    <td>Novya</td>
+                    <td>Selena</td>
+                    <td>18</td>
+                    <td>Jakarta</td>
+                </tr>
+                <tr>
+                    <td>Rusi</td>
+                    <td>Anandi</td>
+                    <td>17</td>
+                    <td>Bandung</td>
+                </tr>
+            </table>
+            <div class="code-example">
+                &lt;table style="width:100%"&gt;<br>
+                &nbsp;&nbsp;&lt;tr&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;First Name&lt;/th&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Last Name&lt;/th&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Age&lt;/th&gt;<br>
+                &nbsp;&nbsp;&lt;/tr&gt;<br>
+                &lt;/table&gt;
+            </div>
+        </div>
+        
+        <!-- Bagian 2: Tabel dengan class -->
+        <div class="section">
+            <h2>2. Tabel dengan Class Selector</h2>
+            <table class="names">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Department</th>
+                </tr>
+                <tr>
+                    <td>Budi</td>
+                    <td>Santoso</td>
+                    <td>25</td>
+                    <td>IT</td>
+                </tr>
+                <tr>
+                    <td>Sari</td>
+                    <td>Wulandari</td>
+                    <td>22</td>
+                    <td>HRD</td>
+                </tr>
+            </table>
+            <div class="code-example">
+                CSS: table.names {<br>
+                &nbsp;&nbsp;width: 100%;<br>
+                &nbsp;&nbsp;background-color: #f1f1c1;<br>
+                }<br><br>
+                HTML: &lt;table class="names"&gt;
+            </div>
+        </div>
+        
+        <!-- Bagian 3: Tabel dengan ID -->
+        <div class="section">
+            <h2>3. Tabel dengan ID Selector</h2>
+            <table id="tabel-khusus">
+                <tr>
+                    <th>No</th>
+                    <th>Nama Barang</th>
+                    <th>Harga</th>
+                    <th>Stok</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Laptop</td>
+                    <td>Rp 8.000.000</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Mouse</td>
+                    <td>Rp 150.000</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Keyboard</td>
+                    <td>Rp 300.000</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Monitor</td>
+                    <td>Rp 2.500.000</td>
+                    <td>10</td>
+                </tr>
+            </table>
+            <div class="code-example">
+                CSS: table#tabel-khusus {<br>
+                &nbsp;&nbsp;width: 80%;<br>
+                &nbsp;&nbsp;background-color: #e6f7ff;<br>
+                }<br><br>
+                HTML: &lt;table id="tabel-khusus"&gt;
+            </div>
+        </div>
+        
+        <!-- Bagian 4: Penjelasan -->
+        <div class="section">
+            <h2>Penjelasan Teknik CSS yang Digunakan</h2>
+            <h3>a. Inline Style</h3>
+            <p>CSS langsung ditulis dalam atribut <code>style</code> pada tag HTML. Cocok untuk styling yang hanya digunakan sekali.</p>
+            
+            <h3>b. Class Selector</h3>
+            <p>Dengan menggunakan titik (.) sebelum nama class. Dapat digunakan berulang kali pada banyak elemen.</p>
+            
+            <h3>c. ID Selector</h3>
+            <p>Dengan menggunakan hashtag (#) sebelum nama ID. Hanya boleh digunakan sekali dalam satu halaman.</p>
+            
+            <h3>d. External CSS</h3>
+            <p>CSS ditulis dalam file terpisah (.css) dan dihubungkan dengan tag <code>&lt;link&gt;</code>.</p>
+        </div>
+    </div>
+</body>
+</html>
