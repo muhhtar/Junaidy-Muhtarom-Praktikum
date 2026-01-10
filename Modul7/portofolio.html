@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junaidy Muhtarom | Web Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- Background Particles -->
+    <div class="particles" id="particles-js"></div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+        <div class="float-circle circle-1"></div>
+        <div class="float-circle circle-2"></div>
+        <div class="float-circle circle-3"></div>
+        <div class="float-square square-1"></div>
+        <div class="float-square square-2"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-name">Junaidy<span class="logo-dot">.</span></span>
+                    <span class="logo-title">Web Developer</span>
+                </div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#portfolio" class="nav-link"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+                <li><a href="#skills" class="nav-link"><i class="fas fa-chart-line"></i> Skills</a></li>
+                <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#contact" class="btn-hire">Hire Me</a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text animate__animated animate__fadeInUp">
+                    <h4 class="hero-subtitle">Hello, I'm</h4>
+                    <h1 class="hero-title">
+                        <span class="text-gradient">Junaidy</span>
+                        <span class="hero-name">Muhtarom</span>
+                    </h1>
+                    <h2 class="hero-role">
+                        <span class="typing-text">Full Stack Developer</span>
+                        <span class="cursor">|</span>
+                    </h2>
+                    <p class="hero-desc">
+                        I create beautiful, functional websites with modern technologies. 
+                        Passionate about clean code and user experience.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn-primary">
+                            <i class="fas fa-eye"></i> View Work
+                        </a>
+                        <a href="#contact" class="btn-secondary">
+                            <i class="fas fa-paper-plane"></i> Contact Me
+                        </a>
+                        <a href="#" class="btn-outline">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-image animate__animated animate__fadeInRight">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                             alt="Junaidy Muhtarom" class="profile-img">
+                        <div class="image-border"></div>
+                        <div class="image-badge">
+                            <i class="fas fa-award"></i>
+                            <span>5+ Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-count="50">0</h3>
+                        <p class="stat-text">Projects Done</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-count="35">0</h3>
+                        <p class="stat-text">Happy Clients</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-count="2400">0</h3>
+                        <p class="stat-text">Working Hours</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-count="12">0</h3>
+                        <p class="stat-text">Awards Won</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h4 class="section-subtitle">My Works</h4>
+                <h2 class="section-title">Featured <span class="text-gradient">Portfolio</span></h2>
+                <p class="section-desc">
+                    Here are some of my recent projects that showcase my skills and creativity.
+                </p>
+            </div>
+            
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Design</button>
+                <button class="filter-btn" data-filter="app">Mobile App</button>
+                <button class="filter-btn" data-filter="ui">UI/UX</button>
+                <button class="filter-btn" data-filter="brand">Branding</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="E-Commerce Website">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-links">
+                                <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">Web Design</span>
+                        <h3 class="portfolio-title">LJOMAE - E-commerce Platform</h3>
+                        <p class="portfolio-desc">Modern e-commerce website with admin dashboard and payment integration.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="portfolio-item" data-category="app">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fitness App">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-links">
+                                <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">Mobile App</span>
+                        <h3 class="portfolio-title">DRAEN - Fitness Tracker</h3>
+                        <p class="portfolio-desc">Cross-platform fitness app with workout plans and progress tracking.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Redux</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="portfolio-item" data-category="ui">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Finance Dashboard">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-links">
+                                <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">UI/UX Design</span>
+                        <h3 class="portfolio-title">PANTAFT - Finance Dashboard</h3>
+                        <p class="portfolio-desc">Dashboard for financial analytics with interactive charts and reports.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">Adobe XD</span>
+                            <span class="tech-tag">Chart.js</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="portfolio-item" data-category="brand">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Coffee Brand">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-links">
+                                <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">Branding</span>
+                        <h3 class="portfolio-title">Coffee House Brand Identity</h3>
+                        <p class="portfolio-desc">Complete brand package including logo, packaging, and marketing materials.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Illustrator</span>
+                            <span class="tech-tag">Photoshop</span>
+                            <span class="tech-tag">InDesign</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h4 class="section-subtitle">My Journey</h4>
+                <h2 class="section-title">Education & <span class="text-gradient">Experience</span></h2>
+            </div>
+            
+            <div class="timeline">
+                <!-- Education -->
+                <div class="timeline-section">
+                    <h3 class="timeline-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <div class="timeline-items">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2023 - Present</div>
+                            <div class="timeline-content">
+                                <h4>S1 - Teknik Informatika</h4>
+                                <span class="timeline-place">Universitas Teknologi Digital</span>
+                                <p>Specialized in Web Development and Software Engineering. GPA: 3.75/4.00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">2018 - 2021</div>
+                            <div class="timeline-content">
+                                <h4>SMA - IPA</h4>
+                                <span class="timeline-place">SMA Negeri 2 Mejauan</span>
+                                <p>Focus on Mathematics and Natural Sciences. Graduated with honors.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">2015 - 2018</div>
+                            <div class="timeline-content">
+                                <h4>MTsN</h4>
+                                <span class="timeline-place">MTsN 7 Madiun</span>
+                                <p>Active in computer club and won several programming competitions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience -->
+                <div class="timeline-section">
+                    <h3 class="timeline-title"><i class="fas fa-briefcase"></i> Experience</h3>
+                    <div class="timeline-items">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2022 - Present</div>
+                            <div class="timeline-content">
+                                <h4>Frontend Developer</h4>
+                                <span class="timeline-place">TechCorp Solutions</span>
+                                <p>Develop responsive web applications using React.js and modern CSS frameworks.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">2020 - 2022</div>
+                            <div class="timeline-content">
+                                <h4>Web Designer</h4>
+                                <span class="timeline-place">Digital Creative Agency</span>
+                                <p>Designed user interfaces for various clients across different industries.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">2019 - 2020</div>
+                            <div class="timeline-content">
+                                <h4>Freelance Developer</h4>
+                                <span class="timeline-place">Self-Employed</span>
+                                <p>Built websites for small businesses and personal portfolios.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h4 class="section-subtitle">My Abilities</h4>
+                <h2 class="section-title">Technical <span class="text-gradient">Skills</span></h2>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skills-chart">
+                    <div class="chart-item">
+                        <div class="chart-circle" data-percent="95">
+                            <span class="chart-value">0%</span>
+                        </div>
+                        <h4>HTML/CSS</h4>
+                    </div>
+                    
+                    <div class="chart-item">
+                        <div class="chart-circle" data-percent="90">
+                            <span class="chart-value">0%</span>
+                        </div>
+                        <h4>JavaScript</h4>
+                    </div>
+                    
+                    <div class="chart-item">
+                        <div class="chart-circle" data-percent="85">
+                            <span class="chart-value">0%</span>
+                        </div>
+                        <h4>React</h4>
+                    </div>
+                    
+                    <div class="chart-item">
+                        <div class="chart-circle" data-percent="80">
+                            <span class="chart-value">0%</span>
+                        </div>
+                        <h4>UI/UX Design</h4>
+                    </div>
+                </div>
+                
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h4>Frontend Development</h4>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h4>Backend Development</h4>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h4>Mobile Development</h4>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h4>Database Design</h4>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tools-section">
+                <h3 class="tools-title">Tools & Technologies</h3>
+                <div class="tools-grid">
+                    <div class="tool-item"><i class="fab fa-html5"></i> HTML5</div>
+                    <div class="tool-item"><i class="fab fa-css3-alt"></i> CSS3</div>
+                    <div class="tool-item"><i class="fab fa-js"></i> JavaScript</div>
+                    <div class="tool-item"><i class="fab fa-react"></i> React</div>
+                    <div class="tool-item"><i class="fab fa-node-js"></i> Node.js</div>
+                    <div class="tool-item"><i class="fas fa-database"></i> MongoDB</div>
+                    <div class="tool-item"><i class="fab fa-git-alt"></i> Git</div>
+                    <div class="tool-item"><i class="fab fa-figma"></i> Figma</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <div class="footer-logo-text">
+                            <h3>Junaidy<span>.</span></h3>
+                            <p>Web Developer & Designer</p>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        Creating digital experiences that inspire and engage users.
+                        Let's build something amazing together!
+                    </p>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> junaidy@example.com</p>
+                        <p><i class="fas fa-phone"></i> +62 812 3456 7890</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Madiun, Indonesia</p>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-services">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">Branding</a></li>
+                        <li><a href="#">SEO Optimization</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for updates and insights</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Junaidy Muhtarom. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
