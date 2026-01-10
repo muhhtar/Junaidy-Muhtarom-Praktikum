@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 12 - CRUD PHP & MySQL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a2980, #26d0ce);
+            padding: 50px;
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #1a2980;
+            padding-bottom: 15px;
+        }
+        .latihan-list {
+            list-style: none;
+            padding: 0;
+        }
+        .latihan-item {
+            background: #f7fafc;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #1a2980;
+        }
+        .latihan-link {
+            text-decoration: none;
+            color: #2d3748;
+            font-weight: bold;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .description {
+            color: #718096;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background: #1a2980;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .feature {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .feature i {
+            font-size: 2rem;
+            color: #1a2980;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 768px) {
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Modul 12: CRUD PHP & MySQL</h1>
+        
+        <p><strong>Tugas Praktikum:</strong> Melanjutkan dari tugas project praktikum sebelumnya, tambah form input data pada project yang ada.</p>
+        
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-plus-circle"></i>
+                <div>Create</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-eye"></i>
+                <div>Read</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-edit"></i>
+                <div>Update</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-trash-alt"></i>
+                <div>Delete</div>
+            </div>
+        </div>
+        
+        <ul class="latihan-list">
+            <li class="latihan-item">
+                <a href="index.php" class="latihan-link">
+                    <i class="fas fa-home"></i> Halaman Utama CRUD
+                </a>
+                <p class="description">
+                    Tampilkan semua data mahasiswa dengan fitur Edit dan Hapus.
+                </p>
+            </li>
+            <li class="latihan-item">
+                <a href="input.php" class="latihan-link">
+                    <i class="fas fa-user-plus"></i> Form Input Data Baru
+                </a>
+                <p class="description">
+                    Tambahkan data mahasiswa baru ke database.
+                </p>
+            </li>
+            <li class="latihan-item">
+                <a href="style.css" class="latihan-link">
+                    <i class="fas fa-palette"></i> File CSS (style.css)
+                </a>
+                <p class="description">
+                    Stylesheet untuk tampilan website CRUD.
+                </p>
+            </li>
+            <li class="latihan-item">
+                <a href="koneksi.php" class="latihan-link">
+                    <i class="fas fa-database"></i> File Koneksi Database
+                </a>
+                <p class="description">
+                    Koneksi ke database MySQL dengan fungsi keamanan.
+                </p>
+            </li>
+        </ul>
+        
+        <p><strong>Database:</strong> Menggunakan database dari Modul11 (db_praktikum)</p>
+        
+        <center>
+            <a href="../" class="btn">
+                <i class="fas fa-arrow-left"></i> Kembali ke Daftar Modul
+            </a>
+        </center>
+    </div>
+</body>
+</html>
