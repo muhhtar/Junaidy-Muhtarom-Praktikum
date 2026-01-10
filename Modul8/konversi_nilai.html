@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 8 - Konversi Nilai</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 800px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4A00E0 0%, #8E2DE2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+            gap: 30px;
+        }
+        
+        .left-panel {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .right-panel {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #8E2DE2;
+            font-size: 22px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        input[type="number"]:focus {
+            border-color: #8E2DE2;
+            box-shadow: 0 0 0 3px rgba(142, 45, 226, 0.2);
+            outline: none;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-konversi {
+            background: linear-gradient(135deg, #4A00E0 0%, #8E2DE2 100%);
+            color: white;
+        }
+        
+        .btn-reset {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-konversi:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(74, 0, 224, 0.3);
+        }
+        
+        .btn-reset:hover {
+            background: #5a6268;
+            transform: translateY(-3px);
+        }
+        
+        .result-box {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+            border: 2px dashed #8E2DE2;
+        }
+        
+        .nilai-angka {
+            font-size: 48px;
+            font-weight: 800;
+            color: #4A00E0;
+            margin: 10px 0;
+        }
+        
+        .nilai-huruf {
+            font-size: 32px;
+            font-weight: 700;
+            color: #28a745;
+            margin: 10px 0;
+        }
+        
+        .nilai-deskripsi {
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        .table-konversi {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .table-konversi th {
+            background: linear-gradient(135deg, #4A00E0 0%, #8E2DE2 100%);
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .table-konversi td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .table-konversi tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .table-konversi tr:hover {
+            background-color: #e9ecef;
+        }
+        
+        .grade-A { background-color: #d4edda !important; color: #155724; }
+        .grade-AB { background-color: #c3e6cb !important; color: #155724; }
+        .grade-B { background-color: #fff3cd !important; color: #856404; }
+        .grade-BC { background-color: #ffeaa7 !important; color: #856404; }
+        .grade-C { background-color: #f8d7da !important; color: #721c24; }
+        .grade-D { background-color: #f5c6cb !important; color: #721c24; }
+        .grade-E { background-color: #dc3545 !important; color: white; }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .nilai-angka {
+                font-size: 36px;
+            }
+            
+            .nilai-huruf {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Konversi Nilai Angka ke Huruf</h1>
+            <p>Program untuk mengkonversi nilai angka menjadi nilai huruf sesuai standar</p>
+        </div>
+        
+        <div class="content">
+            <div class="left-panel">
+                <div class="card">
+                    <h2>🧮 Input Nilai</h2>
+                    <div class="input-group">
+                        <label for="nilaiInput">Masukkan Nilai (0-100):</label>
+                        <input type="number" id="nilaiInput" min="0" max="100" placeholder="Contoh: 85" autofocus>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn-konversi" onclick="konversiNilai()">Konversi Nilai</button>
+                        <button class="btn-reset" onclick="resetForm()">Reset</button>
+                    </div>
+                    
+                    <div id="hasilKonversi" class="result-box" style="display: none;">
+                        <h3>Hasil Konversi</h3>
+                        <div class="nilai-angka" id="nilaiAngka">0</div>
+                        <div>➡️</div>
+                        <div class="nilai-huruf" id="nilaiHuruf">E</div>
+                        <div class="nilai-deskripsi" id="nilaiDeskripsi">Deskripsi nilai</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="card">
+                    <h2>📋 Tabel Konversi</h2>
+                    <table class="table-konversi">
+                        <thead>
+                            <tr>
+                                <th>Rentang Nilai</th>
+                                <th>Nilai Huruf</th>
+                                <th>Keterangan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="grade-A">
+                                <td>81 - 100</td>
+                                <td>A</td>
+                                <td>Sangat Baik</td>
+                            </tr>
+                            <tr class="grade-AB">
+                                <td>71 - 80</td>
+                                <td>AB</td>
+                                <td>Baik Sekali</td>
+                            </tr>
+                            <tr class="grade-B">
+                                <td>66 - 70</td>
+                                <td>B</td>
+                                <td>Baik</td>
+                            </tr>
+                            <tr class="grade-BC">
+                                <td>61 - 65</td>
+                                <td>BC</td>
+                                <td>Cukup Baik</td>
+                            </tr>
+                            <tr class="grade-C">
+                                <td>56 - 60</td>
+                                <td>C</td>
+                                <td>Cukup</td>
+                            </tr>
+                            <tr class="grade-D">
+                                <td>41 - 55</td>
+                                <td>D</td>
+                                <td>Kurang</td>
+                            </tr>
+                            <tr class="grade-E">
+                                <td>0 - 40</td>
+                                <td>E</td>
+                                <td>Sangat Kurang</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div style="margin-top: 20px; padding: 15px; background: #e7f3ff; border-radius: 10px;">
+                        <h4 style="color: #0056b3; margin-bottom: 10px;">📝 Catatan:</h4>
+                        <p style="color: #666; font-size: 14px; line-height: 1.5;">
+                            Program ini dikembangkan untuk memenuhi tugas praktikum Modul 8 - Pemrograman Web. 
+                            Sistem konversi mengikuti standar yang ditentukan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Dibuat oleh: Junaidy Muhtarom | NIM: [Isi NIM] | Kelas: [Isi Kelas]</p>
+            <p id="lastModified"></p>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk konversi nilai
+        function konversiNilai() {
+            const input = document.getElementById('nilaiInput');
+            const nilai = parseInt(input.value);
+            const hasilDiv = document.getElementById('hasilKonversi');
+            const nilaiAngka = document.getElementById('nilaiAngka');
+            const nilaiHuruf = document.getElementById('nilaiHuruf');
+            const nilaiDeskripsi = document.getElementById('nilaiDeskripsi');
+            
+            // Validasi input
+            if (isNaN(nilai) || nilai < 0 || nilai > 100) {
+                alert('Masukkan nilai yang valid (0-100)!');
+                input.focus();
+                return;
+            }
+            
+            // Konversi nilai
+            let huruf, deskripsi, warna;
+            
+            if (nilai >= 81 && nilai <= 100) {
+                huruf = "A";
+                deskripsi = "Sangat Baik - Lulus dengan pujian";
+                warna = "grade-A";
+            } else if (nilai >= 71 && nilai <= 80) {
+                huruf = "AB";
+                deskripsi = "Baik Sekali - Lulus sangat memuaskan";
+                warna = "grade-AB";
+            } else if (nilai >= 66 && nilai <= 70) {
+                huruf = "B";
+                deskripsi = "Baik - Lulus memuaskan";
+                warna = "grade-B";
+            } else if (nilai >= 61 && nilai <= 65) {
+                huruf = "BC";
+                deskripsi = "Cukup Baik - Lulus cukup memuaskan";
+                warna = "grade-BC";
+            } else if (nilai >= 56 && nilai <= 60) {
+                huruf = "C";
+                deskripsi = "Cukup - Lulus dengan syarat";
+                warna = "grade-C";
+            } else if (nilai >= 41 && nilai <= 55) {
+                huruf = "D";
+                deskripsi = "Kurang - Tidak lulus, perlu perbaikan";
+                warna = "grade-D";
+            } else {
+                huruf = "E";
+                deskripsi = "Sangat Kurang - Tidak lulus, mengulang";
+                warna = "grade-E";
+            }
+            
+            // Tampilkan hasil
+            nilaiAngka.textContent = nilai;
+            nilaiHuruf.textContent = huruf;
+            nilaiDeskripsi.textContent = deskripsi;
+            
+            // Tambah kelas warna
+            nilaiHuruf.className = "nilai-huruf " + warna;
+            
+            // Tampilkan div hasil
+            hasilDiv.style.display = 'block';
+            
+            // Animasi sederhana
+            hasilDiv.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                hasilDiv.style.transform = 'scale(1)';
+                hasilDiv.style.transition = 'transform 0.3s ease';
+            }, 10);
+        }
+        
+        // Fungsi reset form
+        function resetForm() {
+            document.getElementById('nilaiInput').value = '';
+            document.getElementById('hasilKonversi').style.display = 'none';
+            document.getElementById('nilaiInput').focus();
+        }
+        
+        // Fungsi untuk menampilkan last modified
+        function showLastModified() {
+            const lastModified = document.lastModified;
+            const element = document.getElementById('lastModified');
+            element.textContent = "Terakhir dimodifikasi: " + lastModified;
+        }
+        
+        // Event listener untuk Enter key
+        document.getElementById('nilaiInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                konversiNilai();
+            }
+        });
+        
+        // Inisialisasi
+        window.onload = function() {
+            showLastModified();
+            document.getElementById('nilaiInput').focus();
+        };
+    </script>
+</body>
+</html>

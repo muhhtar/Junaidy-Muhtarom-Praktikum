@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 8 - Kalkulator Sederhana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 900px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+            gap: 30px;
+        }
+        
+        .calculator {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .history {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            height: 100%;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #FF416C;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2 i {
+            color: #FF416C;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-size: 18px;
+            transition: all 0.3s;
+            background: white;
+        }
+        
+        input[type="number"]:focus {
+            border-color: #FF416C;
+            box-shadow: 0 0 0 4px rgba(255, 65, 108, 0.15);
+            outline: none;
+        }
+        
+        .operator-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .op-btn {
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 22px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+            color: #333;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .op-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .op-btn:active {
+            transform: translateY(-2px);
+        }
+        
+        .btn-tambah {
+            background: linear-gradient(135deg, #4cd137 0%, #44bd32 100%);
+            color: white;
+        }
+        
+        .btn-kurang {
+            background: linear-gradient(135deg, #00a8ff 0%, #0097e6 100%);
+            color: white;
+        }
+        
+        .btn-kali {
+            background: linear-gradient(135deg, #e84118 0%, #c23616 100%);
+            color: white;
+        }
+        
+        .btn-bagi {
+            background: linear-gradient(135deg, #8c7ae6 0%, #9c88ff 100%);
+            color: white;
+        }
+        
+        .result-box {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 25px;
+            border: 3px dashed #FF416C;
+            text-align: center;
+        }
+        
+        .result-label {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .result-value {
+            font-size: 48px;
+            font-weight: 800;
+            color: #FF416C;
+            margin: 15px 0;
+        }
+        
+        .calculation {
+            font-size: 20px;
+            color: #555;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .history-list {
+            max-height: 350px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+        
+        .history-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            border-left: 5px solid #FF416C;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .history-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .history-calculation {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .history-result {
+            font-weight: 700;
+            color: #FF416C;
+            font-size: 18px;
+        }
+        
+        .history-empty {
+            text-align: center;
+            color: #999;
+            padding: 40px 20px;
+            font-style: italic;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .btn-clear, .btn-clear-history {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-clear {
+            background: #ff9f43;
+            color: white;
+        }
+        
+        .btn-clear-history {
+            background: #6c5ce7;
+            color: white;
+        }
+        
+        .btn-clear:hover {
+            background: #ff8c00;
+            transform: translateY(-3px);
+        }
+        
+        .btn-clear-history:hover {
+            background: #5b4fcf;
+            transform: translateY(-3px);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            background: #f8f9fa;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .operator-buttons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .result-value {
+                font-size: 36px;
+            }
+        }
+        
+        /* Scrollbar styling */
+        .history-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .history-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .history-list::-webkit-scrollbar-thumb {
+            background: #FF416C;
+            border-radius: 10px;
+        }
+        
+        .history-list::-webkit-scrollbar-thumb:hover {
+            background: #e0315a;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-calculator"></i> Kalkulator Sederhana</h1>
+            <p>Program kalkulator untuk operasi aritmatika dasar dengan riwayat perhitungan</p>
+        </div>
+        
+        <div class="content">
+            <div class="calculator">
+                <div class="card">
+                    <h2><i class="fas fa-keyboard"></i> Input Bilangan</h2>
+                    
+                    <div class="input-group">
+                        <label for="bil1"><i class="fas fa-hashtag"></i> Bilangan Pertama:</label>
+                        <input type="number" id="bil1" placeholder="Masukkan angka pertama" step="any">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="bil2"><i class="fas fa-hashtag"></i> Bilangan Kedua:</label>
+                        <input type="number" id="bil2" placeholder="Masukkan angka kedua" step="any">
+                    </div>
+                    
+                    <h2 style="margin-top: 30px;"><i class="fas fa-sliders-h"></i> Pilih Operator</h2>
+                    <div class="operator-buttons">
+                        <button class="op-btn btn-tambah" onclick="hitung('+')">
+                            <i class="fas fa-plus"></i> +
+                        </button>
+                        <button class="op-btn btn-kurang" onclick="hitung('-')">
+                            <i class="fas fa-minus"></i> -
+                        </button>
+                        <button class="op-btn btn-kali" onclick="hitung('*')">
+                            <i class="fas fa-times"></i> ×
+                        </button>
+                        <button class="op-btn btn-bagi" onclick="hitung('/')">
+                            <i class="fas fa-divide"></i> ÷
+                        </button>
+                    </div>
+                    
+                    <div class="result-box">
+                        <div class="result-label">Hasil Perhitungan:</div>
+                        <div class="result-value" id="hasil">0</div>
+                        <div class="calculation" id="perhitungan">
+                            Masukkan bilangan dan pilih operator
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="btn-clear" onclick="clearInput()">
+                            <i class="fas fa-broom"></i> Clear Input
+                        </button>
+                        <button class="btn-clear-history" onclick="clearHistory()">
+                            <i class="fas fa-history"></i> Clear History
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="history">
+                <div class="card">
+                    <h2><i class="fas fa-history"></i> Riwayat Perhitungan</h2>
+                    <div class="history-list" id="historyList">
+                        <div class="history-empty">
+                            <i class="fas fa-clock" style="font-size: 48px; margin-bottom: 15px; color: #ddd;"></i>
+                            <p>Belum ada riwayat perhitungan</p>
+                            <p style="font-size: 12px; margin-top: 10px;">Riwayat akan muncul setelah melakukan perhitungan</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 25px; padding: 20px; background: #e3f2fd; border-radius: 15px;">
+                        <h4 style="color: #1565c0; margin-bottom: 10px;"><i class="fas fa-info-circle"></i> Cara Penggunaan:</h4>
+                        <ol style="color: #555; font-size: 14px; line-height: 1.6; padding-left: 20px;">
+                            <li>Masukkan dua bilangan pada kolom input</li>
+                            <li>Pilih operator aritmatika yang diinginkan</li>
+                            <li>Hasil akan muncul secara otomatis</li>
+                            <li>Riwayat perhitungan akan disimpan</li>
+                            <li>Gunakan tombol Clear untuk reset input</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Dibuat oleh: Junaidy Muhtarom | NIM: [Isi NIM] | Kelas: [Isi Kelas]</p>
+            <p id="lastModified"></p>
+        </div>
+    </div>
+
+    <script>
+        // Array untuk menyimpan riwayat perhitungan
+        let history = [];
+        
+        // Fungsi untuk melakukan perhitungan
+        function hitung(operator) {
+            const bil1 = document.getElementById('bil1');
+            const bil2 = document.getElementById('bil2');
+            const hasilElement = document.getElementById('hasil');
+            const perhitunganElement = document.getElementById('perhitungan');
+            const historyList = document.getElementById('historyList');
+            
+            // Validasi input
+            if (bil1.value === '' || bil2.value === '') {
+                alert('Mohon masukkan kedua bilangan!');
+                return;
+            }
+            
+            const num1 = parseFloat(bil1.value);
+            const num2 = parseFloat(bil2.value);
+            let result;
+            let operationSymbol;
+            
+            // Lakukan perhitungan berdasarkan operator
+            switch(operator) {
+                case '+':
+                    result = num1 + num2;
+                    operationSymbol = '+';
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    operationSymbol = '-';
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    operationSymbol = '×';
+                    break;
+                case '/':
+                    if (num2 === 0) {
+                        alert('Tidak dapat melakukan pembagian dengan nol!');
+                        return;
+                    }
+                    result = num1 / num2;
+                    operationSymbol = '÷';
+                    break;
+                default:
+                    return;
+            }
+            
+            // Format hasil (maksimal 8 angka desimal)
+            const formattedResult = parseFloat(result.toFixed(8));
+            
+            // Tampilkan hasil
+            hasilElement.textContent = formattedResult;
+            perhitunganElement.textContent = `${num1} ${operationSymbol} ${num2} = ${formattedResult}`;
+            
+            // Tambahkan animasi pada hasil
+            hasilElement.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                hasilElement.style.transform = 'scale(1)';
+                hasilElement.style.transition = 'transform 0.3s ease';
+            }, 300);
+            
+            // Simpan ke riwayat
+            const historyItem = {
+                calculation: `${num1} ${operationSymbol} ${num2}`,
+                result: formattedResult,
+                timestamp: new Date().toLocaleTimeString()
+            };
+            
+            history.unshift(historyItem); // Tambahkan di awal array
+            
+            // Update tampilan riwayat
+            updateHistoryDisplay();
+            
+            // Simpan ke localStorage
+            saveHistoryToStorage();
+        }
+        
+        // Fungsi untuk update tampilan riwayat
+        function updateHistoryDisplay() {
+            const historyList = document.getElementById('historyList');
+            
+            if (history.length === 0) {
+                historyList.innerHTML = `
+                    <div class="history-empty">
+                        <i class="fas fa-clock" style="font-size: 48px; margin-bottom: 15px; color: #ddd;"></i>
+                        <p>Belum ada riwayat perhitungan</p>
+                        <p style="font-size: 12px; margin-top: 10px;">Riwayat akan muncul setelah melakukan perhitungan</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let historyHTML = '';
+            history.forEach((item, index) => {
+                historyHTML += `
+                    <div class="history-item">
+                        <div>
+                            <div class="history-calculation">${item.calculation}</div>
+                            <div style="font-size: 12px; color: #999; margin-top: 5px;">
+                                <i class="far fa-clock"></i> ${item.timestamp}
+                            </div>
+                        </div>
+                        <div class="history-result">${item.result}</div>
+                    </div>
+                `;
+            });
+            
+            historyList.innerHTML = historyHTML;
+        }
+        
+        // Fungsi untuk clear input
+        function clearInput() {
+            document.getElementById('bil1').value = '';
+            document.getElementById('bil2').value = '';
+            document.getElementById('hasil').textContent = '0';
+            document.getElementById('perhitungan').textContent = 'Masukkan bilangan dan pilih operator';
+            document.getElementById('bil1').focus();
+            
+            // Animasi reset
+            const hasilElement = document.getElementById('hasil');
+            hasilElement.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+                hasilElement.style.transform = 'scale(1)';
+                hasilElement.style.transition = 'transform 0.3s ease';
+            }, 300);
+        }
+        
+        // Fungsi untuk clear history
+        function clearHistory() {
+            if (history.length === 0) {
+                alert('Riwayat sudah kosong!');
+                return;
+            }
+            
+            if (confirm('Apakah Anda yakin ingin menghapus semua riwayat?')) {
+                history = [];
+                updateHistoryDisplay();
+                localStorage.removeItem('calculatorHistory');
+                alert('Riwayat berhasil dihapus!');
+            }
+        }
+        
+        // Fungsi untuk menyimpan riwayat ke localStorage
+        function saveHistoryToStorage() {
+            try {
+                localStorage.setItem('calculatorHistory', JSON.stringify(history));
+            } catch (e) {
+                console.log('Gagal menyimpan riwayat ke localStorage');
+            }
+        }
+        
+        // Fungsi untuk memuat riwayat dari localStorage
+        function loadHistoryFromStorage() {
+            try {
+                const savedHistory = localStorage.getItem('calculatorHistory');
+                if (savedHistory) {
+                    history = JSON.parse(savedHistory);
+                    updateHistoryDisplay();
+                }
+            } catch (e) {
+                console.log('Gagal memuat riwayat dari localStorage');
+            }
+        }
+        
+        // Fungsi untuk menampilkan last modified
+        function showLastModified() {
+            const lastModified = document.lastModified;
+            const element = document.getElementById('lastModified');
+            element.textContent = "Terakhir dimodifikasi: " + lastModified;
+        }
+        
+        // Event listener untuk keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            const bil1 = document.getElementById('bil1');
+            const bil2 = document.getElementById('bil2');
+            
+            // Fokus ke bil1 jika tekan 1
+            if (e.key === '1' && document.activeElement !== bil1 && document.activeElement !== bil2) {
+                bil1.focus();
+                e.preventDefault();
+            }
+            // Fokus ke bil2 jika tekan 2
+            else if (e.key === '2' && document.activeElement !== bil2) {
+                bil2.focus();
+                e.preventDefault();
+            }
+            // Operasi dengan keyboard
+            else if (e.key === '+' || e.key === 'Add') {
+                hitung('+');
+                e.preventDefault();
+            } else if (e.key === '-' || e.key === 'Subtract') {
+                hitung('-');
+                e.preventDefault();
+            } else if (e.key === '*' || e.key === 'Multiply') {
+                hitung('*');
+                e.preventDefault();
+            } else if (e.key === '/' || e.key === 'Divide') {
+                hitung('/');
+                e.preventDefault();
+            } else if (e.key === 'Enter') {
+                // Jika ada input, lakukan penjumlahan
+                if (bil1.value && bil2.value) {
+                    hitung('+');
+                }
+            } else if (e.key === 'Escape') {
+                clearInput();
+            } else if (e.key === 'Delete' || e.key === 'Backspace') {
+                if (e.ctrlKey) {
+                    clearHistory();
+                }
+            }
+        });
+        
+        // Inisialisasi
+        window.onload = function() {
+            showLastModified();
+            loadHistoryFromStorage();
+            document.getElementById('bil1').focus();
+            
+            // Tambahkan efek loading
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        };
+        
+        // Set opacity awal untuk efek fade in
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease';
+    </script>
+</body>
+</html>
