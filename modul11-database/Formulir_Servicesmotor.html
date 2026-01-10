@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Service Motor</title>
+    <style>
+        body { font-family: Arial; padding: 30px; background: #fff8f0; }
+        .container { background: white; padding: 30px; border-radius: 10px; max-width: 800px; margin: auto; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        h1 { color: #e67e22; text-align: center; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .btn { background: #e67e22; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; }
+        .btn:hover { background: #d35400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏍️ Formulir Service Motor</h1>
+        <form>
+            <div class="form-group">
+                <label>Nama Pemilik:</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>No. HP:</label>
+                <input type="tel" required>
+            </div>
+            <div class="form-group">
+                <label>Merk Motor:</label>
+                <select>
+                    <option>Honda</option>
+                    <option>Yamaha</option>
+                    <option>Suzuki</option>
+                    <option>Kawasaki</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Tipe Motor:</label>
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <label>No. Plat:</label>
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <label>Jenis Service:</label>
+                <select>
+                    <option>Service Ringan</option>
+                    <option>Service Berkala</option>
+                    <option>Ganti Oli</option>
+                    <option>Perbaikan Mesin</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Tanggal Booking:</label>
+                <input type="datetime-local">
+            </div>
+            <div class="form-group">
+                <label>Keluhan:</label>
+                <textarea rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn">Booking Service</button>
+        </form>
+        <p style="margin-top: 20px; text-align: center;">
+            <a href="tampil_mahasiswa.php">← Kembali ke Modul 11</a>
+        </p>
+    </div>
+</body>
+</html>

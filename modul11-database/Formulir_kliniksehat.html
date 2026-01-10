@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Klinik Sehat</title>
+    <style>
+        body { font-family: Arial; padding: 30px; background: #f0fff0; }
+        .container { background: white; padding: 30px; border-radius: 10px; max-width: 800px; margin: auto; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        h1 { color: #27ae60; text-align: center; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .btn { background: #27ae60; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; }
+        .btn:hover { background: #229954; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏥 Formulir Pendaftaran - Klinik Sehat</h1>
+        <form>
+            <div class="form-group">
+                <label>Nama Lengkap:</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Tanggal Lahir:</label>
+                <input type="date" required>
+            </div>
+            <div class="form-group">
+                <label>Jenis Kelamin:</label>
+                <select>
+                    <option>Laki-laki</option>
+                    <option>Perempuan</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Alamat:</label>
+                <textarea rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label>No. Telepon:</label>
+                <input type="tel" required>
+            </div>
+            <div class="form-group">
+                <label>Keluhan:</label>
+                <textarea rows="4" placeholder="Jelaskan keluhan kesehatan..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Poli Tujuan:</label>
+                <select>
+                    <option>Umum</option>
+                    <option>Gigi</option>
+                    <option>Mata</option>
+                    <option>Anak</option>
+                    <option>Bedah</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Tanggal Periksa:</label>
+                <input type="datetime-local">
+            </div>
+            <button type="submit" class="btn">Daftar Sekarang</button>
+        </form>
+        <p style="margin-top: 20px; text-align: center;">
+            <a href="tampil_mahasiswa.php">← Kembali ke Modul 11</a>
+        </p>
+    </div>
+</body>
+</html>
